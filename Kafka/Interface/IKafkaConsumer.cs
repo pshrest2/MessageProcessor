@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace MessageProcessor.Kafka.Interface
+namespace RSMessageProcessor.Kafka.Interface
 {
     public interface IKafkaConsumer<TKey, TValue>
     {

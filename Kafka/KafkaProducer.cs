@@ -1,9 +1,9 @@
 ﻿using Confluent.Kafka;
-using MessageProcessor.Kafka.Interface;
+using RSMessageProcessor.Kafka.Interface;
 using System;
 using System.Threading.Tasks;
 
-namespace MessageProcessor.Kafka
+namespace RSMessageProcessor.Kafka
 {
     public class KafkaProducer<TKey, TValue> : IDisposable, IKafkaProducer<TKey, TValue> where TValue : class
     {

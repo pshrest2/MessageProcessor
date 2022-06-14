@@ -1,11 +1,11 @@
 ﻿using Confluent.Kafka;
-using MessageProcessor.Kafka.Interface;
+using RSMessageProcessor.Kafka.Interface;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MessageProcessor.Kafka
+namespace RSMessageProcessor.Kafka
 {
     public class KafkaConsumer<TKey, TValue> : IDisposable, IKafkaConsumer<TKey, TValue> where TValue : class
     {

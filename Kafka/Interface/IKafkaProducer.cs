@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace MessageProcessor.Kafka.Interface
+namespace RSMessageProcessor.Kafka.Interface
 {
     public interface IKafkaProducer<TKey, TValue>
     {

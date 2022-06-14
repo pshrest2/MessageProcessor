@@ -1,10 +1,10 @@
-﻿using MessageProcessor.Kafka;
-using MessageProcessor.Kafka.Interface;
+﻿using RSMessageProcessor.Kafka;
+using RSMessageProcessor.Kafka.Interface;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using System.Reflection;
 
-namespace MessageProcessor
+namespace RSMessageProcessor
 {
     public static class ServiceCollectionExtension
     {

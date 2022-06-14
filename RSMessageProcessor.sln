@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageProcessor", "MessageProcessor.csproj", "{A94CB72A-14EE-481E-94AC-05D647118163}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSMessageProcessor", "RSMessageProcessor.csproj", "{A94CB72A-14EE-481E-94AC-05D647118163}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
