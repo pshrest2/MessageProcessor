@@ -48,5 +48,5 @@ jobs:
       
     - name: Publish
       if: startsWith(github.ref, 'refs/heads/release')
-      run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.actions.NUGET_API_KEY}}
+      run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey oy2ljg5oqddpcuvexqeqrxymls4veb4etnnm7w3nztlntu
 
