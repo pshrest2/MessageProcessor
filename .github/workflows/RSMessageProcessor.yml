@@ -7,6 +7,9 @@ on:
   push:
     branches: [ "master" ]
     
+  pull_request:
+    branches: [ "master" ]
+
 jobs:
   build:
     env:
@@ -43,6 +46,7 @@ jobs:
     - name: Run Tests
       run: dotnet test -c=$BUILD_CONFIG --no-restore --no-build --verbosity normal
       
-    - name: Publish
+    - name: Publish   
+      if: startsWith(github.ref, 'refs/heads/release')
       run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
 
