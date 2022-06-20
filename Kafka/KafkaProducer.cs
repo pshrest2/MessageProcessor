@@ -10,7 +10,7 @@ namespace RSMessageProcessor.Kafka
         private readonly IProducer<TKey, TValue> _producer;
         public KafkaProducer(ProducerConfig config)
         {
-            _producer = new ProducerBuilder<TKey, TValue>(config).Build();
+            _producer = new ProducerBuilder<TKey, TValue>(config).SetValueSerializer(new KafkaSerializer<TValue>()).Build();
         }
 
         public async Task ProduceAsync(string topic, TKey key, TValue value)
