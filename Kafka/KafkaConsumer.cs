@@ -26,11 +26,16 @@ namespace RSMessageProcessor.Kafka
             using (var scope = _serviceScopeFactory.CreateScope())
             {
                 _handler = scope.ServiceProvider.GetRequiredService<IKafkaHandler<TKey, TValue>>();
-                _consumer = new ConsumerBuilder<TKey, TValue>(_config).Build();
+                _consumer = new ConsumerBuilder<TKey, TValue>(_config).SetValueDeserializer(new KafkaDeserializer<TValue>()).Build();
                 _topic = topic;
             }
 
             await Task.Run(() => StartConsumerLoop(stoppingToken), stoppingToken);
+        }
+
+        public void Close()
+        {
+            _consumer.Close();
         }
 
         public void Dispose()

@@ -6,5 +6,7 @@ namespace RSMessageProcessor.Kafka.Interface
     public interface IKafkaConsumer<TKey, TValue>
     {
         Task Consume(string topic, CancellationToken stoppingToken);
+        void Close();
+        void Dispose();
     }
 }
