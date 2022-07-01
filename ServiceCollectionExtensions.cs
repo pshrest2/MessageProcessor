@@ -30,7 +30,7 @@ namespace RSMessageProcessor
             if (!services.Any(descriptor => descriptor.ServiceType.Assembly == Assembly.GetExecutingAssembly()))
             {
                 services.AddSingleton(config);
-                services.AddSingleton(typeof(IRabbitConsumer<,>), typeof(KafkaConsumer<,>));
+                services.AddSingleton(typeof(IKafkaConsumer<,>), typeof(KafkaConsumer<,>));
             }
 
             return services;
