@@ -2,11 +2,11 @@ name: MessageProcessor
 
 on:
   create:
-      branches: 
-        - release/**
+    branches:
+      - release/**
   push:
     branches: [ "master" ]
-    
+
   pull_request:
     branches: [ "master" ]
 
@@ -15,7 +15,7 @@ jobs:
     env:
       BUILD_CONFIG: 'Release'
       SOLUTION: 'RSMessageProcessor.sln'
-      
+
     runs-on: ubuntu-latest
 
     steps:
