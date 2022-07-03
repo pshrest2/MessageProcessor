@@ -15,6 +15,8 @@ namespace RSMessageProcessor.RabbitMQ.Dtos
         public int Port { get; set; } = 5672;
 
         public string VHost { get; set; } = "/";
+
+        public string Uri { get; set; }
     }
 }
 

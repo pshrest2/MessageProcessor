@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,7 +33,20 @@ namespace RSMessageProcessor.RabbitMQ
             {
                 _handler = scope.ServiceProvider.GetRequiredService<IRabbitHandler<T>>();
             }
-            var factory = new ConnectionFactory { HostName = _config.HostName };
+
+            var factory = _config.Uri == null
+                ? new ConnectionFactory
+                {
+                    HostName = _config.HostName,
+                    UserName = _config.UserName,
+                    Password = _config.Password,
+                    Port = _config.Port,
+                    VirtualHost = _config.VHost,
+                }
+                : new ConnectionFactory
+                {
+                    Uri = new Uri(_config.Uri)
+                };
             _connection = factory.CreateConnection();
             _channel = _connection.CreateModel();
         }

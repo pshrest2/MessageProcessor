@@ -5,6 +5,7 @@ using RSMessageProcessor.RabbitMQ.Dtos;
 using RSMessageProcessor.RabbitMQ.Interface;
 using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
+using System;
 
 namespace RSMessageProcessor.RabbitMQ
 {
@@ -21,14 +22,19 @@ namespace RSMessageProcessor.RabbitMQ
 
         private void InitRabbitMQ()
         {
-            var factory = new ConnectionFactory
-            {
-                HostName = _config.HostName,
-                UserName = _config.UserName,
-                Password = _config.Password,
-                Port = _config.Port,
-                VirtualHost = _config.VHost,
-            };
+            var factory = _config.Uri == null
+                ? new ConnectionFactory
+                {
+                    HostName = _config.HostName,
+                    UserName = _config.UserName,
+                    Password = _config.Password,
+                    Port = _config.Port,
+                    VirtualHost = _config.VHost,
+                }
+                : new ConnectionFactory
+                {
+                    Uri = new Uri(_config.Uri)
+                };
             _connection = factory.CreateConnection();
             _channel = _connection.CreateModel();
         }
